@@ -1,0 +1,18 @@
+<div class='main-container'>
+<h1>Image Preview</h1>
+<canvas class = 'canvas-container' #canvasEl width=500 height=500></canvas>
+<!-- <div > 
+  <img id = 'image-viewer'  src="{{imgUrl}}"/>
+</div> -->
+<div>
+<ul>
+  <li type ='none' class="imageTiles" *ngFor="let item of imageCollection">
+    <img 
+      src="../assets/serverImages/{{item}}"
+      (click)="onImgSelect($event)"
+      />
+  </li>
+</ul>
+</div>
+</div>
+
