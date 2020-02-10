@@ -1,18 +1,17 @@
 <div class='main-container'>
-<h1>Image Preview</h1>
-<canvas class = 'canvas-container' #canvasEl width=500 height=500></canvas>
-<!-- <div > 
-  <img id = 'image-viewer'  src="{{imgUrl}}"/>
-</div> -->
-<div>
-<ul>
-  <li type ='none' class="imageTiles" *ngFor="let item of imageCollection">
-    <img 
-      src="../assets/serverImages/{{item}}"
-      (click)="onImgSelect($event)"
-      />
-  </li>
-</ul>
-</div>
-</div>
+  <div class="preview">
+    <h1>Image Preview</h1>
+    <canvas id="canvas" class='canvas-container' #canvasEl width=500 height=500></canvas>
+  </div>
+  <button (click)="upload($event)">Save</button>
+  <div class="list">
+    <div class="imageTiles" *ngFor="let item of imageCollection">
+      <img src="../assets/serverImages/{{item}}" (click)="onImgSelect($event)" />
+    </div>
+  </div>
+  <h1>----------Saved image preview---------</h1>
 
+</div>
+<div>
+  <img src={{this.savedImage}} alt="">
+</div>
