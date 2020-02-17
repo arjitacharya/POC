@@ -1,12 +1,13 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http'
+import { RequestService } from './requestService'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  constructor() {
+  constructor(private reqService: RequestService) {
 
   }
   @ViewChild('canvasEl', { static: false }) canvasEl: ElementRef;
@@ -84,6 +85,9 @@ export class AppComponent implements AfterViewInit {
   upload = (e) => {
     let canvas = <HTMLCanvasElement>document.getElementById('canvas');
     this.savedImage = canvas.toDataURL();
+//let base64Image = this.savedImage.split(';base64,').pop();
+
+    this.reqService.saveImage(this.savedImage); ``
   }
 
 }
