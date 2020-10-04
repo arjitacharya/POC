@@ -7,28 +7,34 @@
             "createdBy": "John",
             "price": "Rs 2000",
             "offerPrice": "Rs 1500",
-            "image": ""
+            "image": "",
+            "rating": "(3/5)",
+            "language": "English"
         },
         {
             "orderId": "react-1-2020-1",
             "orderedAt": "13/09/2020",
             "title": "React for beginners",
-            "status": "Failed",
+            "status": "failed",
             "createdBy": "Arjit",
             "price": "Rs 4000",
             "offerPrice": "Rs 3500",
-            "image": ""
+            "image": "",
+            "rating": "(3/5)",
+            "language": "English"
 
         },
         {
             "orderId": "nextjs-1-2020-1",
             "orderedAt": "13/10/2020",
             "title": "Nextjs for beginners",
-            "status": "Pending",
+            "status": "completed",
             "createdBy": "Vercel",
             "price": "Rs 2000",
             "offerPrice": "Rs 1100",
-            "image": ""
+            "image": "",
+            "rating": "(3/5)",
+            "language": "English"
         }
     ]
 }

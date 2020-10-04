@@ -16,6 +16,8 @@ const purchasedMock = require("../../mocks/purchasedCourses.json").data;
 export default function Home() {
   const [currentTab, setCurrentTab] = useState(prf);
   const [showDetails, setShowDetails] = useState(false);
+  const [currentDetailsTab, setCurrentDetailsTab] = useState(null);
+
   return (
     <div>
       <div className="sidebar-container">
@@ -79,23 +81,36 @@ export default function Home() {
           {currentTab === hist && (
             <div className="order-list-container">
               {purchasedMock.map((el) => {
-                const { orderId } = el || {};
+                const {
+                  orderId,
+                  title,
+                  orderedAt,
+                  status,
+                  createdBy,
+                  price,
+                  offerPrice,
+                  image,
+                  rating,
+                  language,
+                } = el || {};
                 return (
-                  <>
+                  <div key={orderId}>
                     <Row className="order-list-element">
                       <Col lg="2">
-                        <img src={require("../../assets/favicon.ico")}></img>
+                        <img
+                          src={image || require("../../assets/favicon.ico")}
+                        ></img>
                       </Col>
                       <Col lg="8">
-                        <Row>Kick start to react js programming.</Row>
+                        <Row>{title}.</Row>
                         <Row>
-                          <span>Order id: 2323232</span> ·
-                          <span> Ordered on : 1-2-3</span>
+                          <span>Order id: {orderId}</span> ·
+                          <span> Ordered on: {orderedAt}</span>
                         </Row>
                       </Col>
                       <Col lg="2">
-                        <Row className="oldprice">Rs 2200</Row>
-                        <Row className="newprice">Rs 2200</Row>
+                        <Row className="oldprice">{price}</Row>
+                        <Row className="newprice">{offerPrice}</Row>
                       </Col>
                     </Row>
                     <Row>
@@ -103,14 +118,17 @@ export default function Home() {
                         <Row>
                           <span
                             className="padding-sm"
-                            onClick={() => setShowDetails(!showDetails)}
+                            onClick={() => {
+                              setCurrentDetailsTab(orderId);
+                              setShowDetails(!showDetails);
+                            }}
                           >
                             View order Details
                           </span>
                           <span className="padding-sm">Help</span>
                           <span className="padding-sm">Reorder</span>
                         </Row>
-                        {showDetails && (
+                        {showDetails && currentDetailsTab == orderId && (
                           <Table striped bordered hover size="sm">
                             <tbody>
                               <tr>
@@ -120,18 +138,20 @@ export default function Home() {
                                 <td>Last updated</td>
                               </tr>
                               <tr>
-                                <td>2</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
+                                <td>{rating}</td>
+                                <td>{language}</td>
+                                <td>{createdBy}</td>
+                                <td>today</td>
                               </tr>
                             </tbody>
                           </Table>
                         )}
                       </Col>
-                      <Col classname={`float-right ${"status"}`}>Pending</Col>
+                      <Col className={`course-status float-right ${status}`}>
+                        {status}
+                      </Col>
                     </Row>
-                  </>
+                  </div>
                 );
               })}
             </div>

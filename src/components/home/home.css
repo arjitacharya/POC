@@ -47,3 +47,19 @@
 .product-details {
   padding: 30px;
 }
+
+.failed {
+  color: #ff5050 !important;
+}
+
+.pending {
+  color: orange;
+}
+
+.completed {
+  color: darkgreen;
+}
+
+.course-status {
+  text-transform: capitalize;
+}
