@@ -1,0 +1,49 @@
+.sidebar-details-container .form-label {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.save-btn {
+  background-color: #ff5050 !important;
+  border: none;
+  margin-right: 10px;
+  width: 150px;
+}
+
+.update-pass {
+  padding: 5px;
+  color: #ff5050;
+}
+
+.oldprice {
+  text-decoration: line-through;
+  color: gray;
+  font-size: 12px;
+}
+
+.newPrice {
+  font-size: 20px;
+}
+
+.order-list-container {
+  background-color: #f2f2f2;
+}
+
+.order-list-element {
+  padding: 15px;
+}
+
+.order-details {
+  color: #ff5050;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.padding-sm {
+  padding-left: 30px;
+  float: left;
+}
+
+.product-details {
+  padding: 30px;
+}
