@@ -59,5 +59,9 @@ a.active {
   border-radius: 50%;
   margin-left: 20px;
   background-color: #ff5050;
-  font-size: 18px;
+  font-size: 12px;
+}
+
+.avtar-text {
+  margin-top: 5px;
 }

@@ -82,3 +82,7 @@
 .sidebar-item+.active {
   color: #ff5050 !important;
 }
+
+.sideBar-title {
+  font-weight: bold;
+}
