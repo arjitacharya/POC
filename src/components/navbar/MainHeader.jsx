@@ -1,5 +1,5 @@
 import React from "react";
-import { Navbar, Nav, Container, Image, Col } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import {
   Route,
   NavLink,

@@ -4,7 +4,7 @@ import {
   Col,
   Container,
   Form,
-  FormGroup,
+  Modal,
   Row,
   Table,
 } from "react-bootstrap";
@@ -17,9 +17,66 @@ export default function Home() {
   const [currentTab, setCurrentTab] = useState(prf);
   const [showDetails, setShowDetails] = useState(false);
   const [currentDetailsTab, setCurrentDetailsTab] = useState(null);
+  const [showHelp, setShowHelp] = useState(false);
+  const [reorderData, setReorderData] = useState(undefined);
+
+  const helpModal = () => {
+    return (
+      <Modal
+        show={showHelp}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Thanks for contacting...
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            You will recieve a call back from our customer service executive on
+            your registered contact.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setShowHelp(false)}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  };
+
+  const reorderModel = () => {
+    return (
+      <Modal
+        show={reorderData}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">Reorder</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p>Please confirm details before re-ordering</p>
+          <p>Title: {reorderData && reorderData.title}</p>
+          <p>Price: {reorderData && reorderData.offerPrice}</p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setReorderData(undefined)}>
+            Close
+          </Button>
+          <Button variant="primary">Save changes</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  };
 
   return (
     <div>
+      {showHelp && helpModal()}
+      {reorderData && reorderModel()}
       <div className="sidebar-container">
         <h3 className="sideBar-title">Account Settings</h3>
         <div className="options">
@@ -132,8 +189,18 @@ export default function Home() {
                           >
                             View order Details
                           </span>
-                          <span className="padding-sm">Help</span>
-                          <span className="padding-sm">Reorder</span>
+                          <span
+                            onClick={() => setShowHelp(true)}
+                            className="padding-sm"
+                          >
+                            Help
+                          </span>
+                          <span
+                            onClick={() => setReorderData(el)}
+                            className="padding-sm"
+                          >
+                            Reorder
+                          </span>
                         </Row>
                         {showDetails && currentDetailsTab === orderId && (
                           <Table striped bordered hover size="sm">
