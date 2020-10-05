@@ -19,10 +19,10 @@ export default function Home() {
   const [currentDetailsTab, setCurrentDetailsTab] = useState(null);
   const [showHelp, setShowHelp] = useState(false);
   const [reorderData, setReorderData] = useState(undefined);
-  const [fName, setFName] = useState("");
-  const [lName, setLName] = useState("");
-  const [mobile, setMobile] = useState("");
-  const [email, setEmail] = useState("");
+  const [fName, setFName] = useState("Arjit");
+  const [lName, setLName] = useState("Acharya");
+  const [mobile, setMobile] = useState("8888888888");
+  const [email, setEmail] = useState("arjitacharya");
 
   const helpModal = () => {
     return (
@@ -116,6 +116,7 @@ export default function Home() {
                   <Form.Group controlId="name">
                     <Form.Label>Name</Form.Label>
                     <Form.Control
+                      value={fName}
                       onChange={(e) => {
                         setFName(e.target.value);
                       }}
@@ -128,6 +129,7 @@ export default function Home() {
                   <Form.Group controlId="Lastname">
                     <Form.Label>Last Name</Form.Label>
                     <Form.Control
+                      value={lName}
                       onChange={(e) => {
                         setLName(e.target.value);
                       }}
@@ -143,6 +145,7 @@ export default function Home() {
                   <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
                     <Form.Control
+                      value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
@@ -155,6 +158,7 @@ export default function Home() {
                   <Form.Group controlId="phone">
                     <Form.Label>Mobile Number</Form.Label>
                     <Form.Control
+                      value={mobile}
                       onChange={(e) => {
                         setMobile(e.target.value);
                       }}
