@@ -20,16 +20,17 @@
   width: 70%;
   margin-top: 5%;
 }
-.main-nav-container > ul {
+
+.main-nav-container>ul {
   list-style: none;
   display: flex;
 }
 
-.main-nav-container > ul > li {
+.main-nav-container>ul>li {
   padding: 5px;
 }
 
-.nav-link > .active {
+.nav-link>.active {
   color: #ff5050;
 }
 
@@ -49,4 +50,14 @@ a.active {
 
 .sidebar-item:hover {
   color: #ff5050;
+}
+
+.profile-avtar {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 20px;
+  background-color: #ff5050;
+  font-size: 18px;
 }

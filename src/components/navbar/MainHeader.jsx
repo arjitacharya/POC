@@ -64,6 +64,9 @@ export default function MainHeader(props) {
 
               <div className="callbackDiv">Request a callback</div>
             </Navbar.Collapse>
+            <div className="profile-avtar">
+              <strong>AA</strong>
+            </div>
           </Navbar>
         </div>
         <div>
