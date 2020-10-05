@@ -79,7 +79,11 @@
   text-transform: capitalize;
 }
 
-.sidebar-item+.active {
+.sidebar-item {
+  padding: 15px;
+}
+
+.active {
   color: #ff5050 !important;
 }
 
