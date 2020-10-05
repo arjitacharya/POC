@@ -12,7 +12,11 @@ code {
     monospace;
 }
 
-.div > .active {
+.div>.active {
   border: 1px solid red;
   color: red;
+}
+
+.btn-primary {
+  border-color: transparent !important;
 }

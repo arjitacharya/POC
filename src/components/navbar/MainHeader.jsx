@@ -1,5 +1,5 @@
-import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import React, { useState } from "react";
+import { Navbar, Nav, Container, Modal, Button } from "react-bootstrap";
 import {
   Route,
   NavLink,
@@ -11,11 +11,40 @@ import Courses from "../Courses";
 import Home from "../home/Home";
 import Tracks from "../Tracks";
 import "./navbar.css";
+
 export default function MainHeader(props) {
+  const [showhelp, setShowHelp] = useState(false);
+
+  const helpModal = () => {
+    return (
+      <Modal
+        show={showhelp}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Thanks for contacting...
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>
+            You will recieve a call back from our customer service executive on
+            your registered contact.
+          </p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setShowHelp(false)}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  };
   return (
     <Router>
       <Container>
         <div className="main-nav-container">
+          {helpModal()}
           <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Navbar.Brand>Course</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -62,7 +91,9 @@ export default function MainHeader(props) {
                 </Nav.Link>
               </Nav>
 
-              <div className="callbackDiv">Request a callback</div>
+              <div onClick={() => setShowHelp(true)} className="callbackDiv">
+                Request a callback
+              </div>
             </Navbar.Collapse>
             <div className="profile-avtar">
               <p className="avtar-text">AA</p>

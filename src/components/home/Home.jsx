@@ -19,6 +19,10 @@ export default function Home() {
   const [currentDetailsTab, setCurrentDetailsTab] = useState(null);
   const [showHelp, setShowHelp] = useState(false);
   const [reorderData, setReorderData] = useState(undefined);
+  const [fName, setFName] = useState("");
+  const [lName, setLName] = useState("");
+  const [mobile, setMobile] = useState("");
+  const [email, setEmail] = useState("");
 
   const helpModal = () => {
     return (
@@ -67,7 +71,15 @@ export default function Home() {
           <Button variant="secondary" onClick={() => setReorderData(undefined)}>
             Close
           </Button>
-          <Button variant="primary">Save changes</Button>
+          <Button
+            variant="primary"
+            onClick={() => {
+              setReorderData(undefined);
+              window.alert("Order Successfull");
+            }}
+          >
+            Save changes
+          </Button>
         </Modal.Footer>
       </Modal>
     );
@@ -103,13 +115,25 @@ export default function Home() {
                 <Col>
                   <Form.Group controlId="name">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Name" />
+                    <Form.Control
+                      onChange={(e) => {
+                        setFName(e.target.value);
+                      }}
+                      type="text"
+                      placeholder="Enter Name"
+                    />
                   </Form.Group>
                 </Col>
                 <Col>
                   <Form.Group controlId="Lastname">
                     <Form.Label>Last Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Lastname" />
+                    <Form.Control
+                      onChange={(e) => {
+                        setLName(e.target.value);
+                      }}
+                      type="text"
+                      placeholder="Enter Lastname"
+                    />
                   </Form.Group>
                 </Col>
               </Row>
@@ -118,25 +142,46 @@ export default function Home() {
                 <Col>
                   <Form.Group controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter Email" />
+                    <Form.Control
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                      type="email"
+                      placeholder="Enter Email"
+                    />
                   </Form.Group>
                 </Col>
                 <Col>
                   <Form.Group controlId="phone">
                     <Form.Label>Mobile Number</Form.Label>
                     <Form.Control
+                      onChange={(e) => {
+                        setMobile(e.target.value);
+                      }}
                       type="tel"
                       placeholder="Enter mobile number"
                     />
                   </Form.Group>
                 </Col>
               </Row>
-              <Row className="float-left ">
+              <Row className="float-left">
                 <Col>
-                  <Button className="save-btn">Save</Button>
+                  <Button
+                    className="save-btn"
+                    onClick={() => {
+                      document.cookie = `username=${fName}`;
+                    }}
+                  >
+                    Save
+                  </Button>
                 </Col>
                 <Col>
-                  <p className="update-pass">Update password</p>
+                  <p
+                    onClick={() => window.prompt("Enter new password")}
+                    className="update-pass"
+                  >
+                    Update password
+                  </p>
                 </Col>
               </Row>
             </Form>
