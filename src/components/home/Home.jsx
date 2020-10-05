@@ -23,11 +23,17 @@ export default function Home() {
       <div className="sidebar-container">
         <h3 className="sideBar-title">Account Settings</h3>
         <div className="options">
-          <div className="sidebar-item" onClick={() => setCurrentTab(prf)}>
+          <div
+            className={`sidebar-item ${currentTab === prf ? "active" : ""}`}
+            onClick={() => setCurrentTab(prf)}
+          >
             {" "}
             Profile Details
           </div>
-          <div className="sidebar-item" onClick={() => setCurrentTab(hist)}>
+          <div
+            className={`sidebar-item ${currentTab === hist ? "active" : ""}`}
+            onClick={() => setCurrentTab(hist)}
+          >
             Order History
           </div>
         </div>
@@ -94,15 +100,16 @@ export default function Home() {
                   language,
                 } = el || {};
                 return (
-                  <div key={orderId}>
+                  <div className="order-list-item-container" key={orderId}>
                     <Row className="order-list-element">
                       <Col lg="2">
                         <img
                           src={image || require("../../assets/favicon.ico")}
-                        ></img>
+                          alt="NA"
+                        />
                       </Col>
                       <Col lg="8">
-                        <Row>{title}.</Row>
+                        <Row>{title}</Row>
                         <Row>
                           <span>Order id: {orderId}</span> ·
                           <span> Ordered on: {orderedAt}</span>
@@ -113,7 +120,7 @@ export default function Home() {
                         <Row className="newprice">{offerPrice}</Row>
                       </Col>
                     </Row>
-                    <Row>
+                    <Row className="order-details-wrap">
                       <Col className="order-details" lg={10} sm={10}>
                         <Row>
                           <span
@@ -128,7 +135,7 @@ export default function Home() {
                           <span className="padding-sm">Help</span>
                           <span className="padding-sm">Reorder</span>
                         </Row>
-                        {showDetails && currentDetailsTab == orderId && (
+                        {showDetails && currentDetailsTab === orderId && (
                           <Table striped bordered hover size="sm">
                             <tbody>
                               <tr>

@@ -25,12 +25,13 @@
   font-size: 20px;
 }
 
-.order-list-container {
-  background-color: #f2f2f2;
+.order-list-item-container {
+  margin-bottom: 15px;
 }
 
 .order-list-element {
   padding: 15px;
+
 }
 
 .order-details {
@@ -41,11 +42,25 @@
 
 .padding-sm {
   padding-left: 30px;
+  padding-top: 2px;
   float: left;
 }
 
 .product-details {
   padding: 30px;
+}
+
+.order-list-element,
+.order-details,
+.product-details,
+.course-status {
+  background-color: #f2f2f2;
+}
+
+.order-details-wrap {
+  border: none;
+  border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
 }
 
 .failed {
@@ -62,4 +77,8 @@
 
 .course-status {
   text-transform: capitalize;
+}
+
+.sidebar-item+.active {
+  color: #ff5050 !important;
 }

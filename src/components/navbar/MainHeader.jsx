@@ -16,42 +16,54 @@ export default function MainHeader(props) {
     <Router>
       <Container>
         <div className="main-nav-container">
-          <Navbar bg="light" variant="light">
+          <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Navbar.Brand>Course</Navbar.Brand>
-            <Nav className="mr-auto">
-              <Nav.Link>
-                <NavLink className="links" activeClassName="active" to="/home">
-                  Home
-                </NavLink>
-              </Nav.Link>
-              <Nav.Link>
-                {" "}
-                <NavLink
-                  className="links"
-                  activeClassName="active"
-                  to="/tracks"
-                >
-                  Tracks
-                </NavLink>
-              </Nav.Link>
-              <Nav.Link>
-                {" "}
-                <NavLink
-                  className="links"
-                  activeClassName="active"
-                  to="/courses"
-                >
-                  Coures
-                </NavLink>
-              </Nav.Link>
-              <Nav.Link>
-                {" "}
-                <NavLink className="links" activeClassName="active" to="/about">
-                  About
-                </NavLink>
-              </Nav.Link>
-            </Nav>
-            <div className="callbackDiv">Request a callback</div>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="mr-auto">
+                <Nav.Link>
+                  <NavLink
+                    className="links"
+                    activeClassName="active"
+                    to="/home"
+                  >
+                    Home
+                  </NavLink>
+                </Nav.Link>
+                <Nav.Link>
+                  {" "}
+                  <NavLink
+                    className="links"
+                    activeClassName="active"
+                    to="/tracks"
+                  >
+                    Tracks
+                  </NavLink>
+                </Nav.Link>
+                <Nav.Link>
+                  {" "}
+                  <NavLink
+                    className="links"
+                    activeClassName="active"
+                    to="/courses"
+                  >
+                    Coures
+                  </NavLink>
+                </Nav.Link>
+                <Nav.Link>
+                  {" "}
+                  <NavLink
+                    className="links"
+                    activeClassName="active"
+                    to="/about"
+                  >
+                    About
+                  </NavLink>
+                </Nav.Link>
+              </Nav>
+
+              <div className="callbackDiv">Request a callback</div>
+            </Navbar.Collapse>
           </Navbar>
         </div>
         <div>
